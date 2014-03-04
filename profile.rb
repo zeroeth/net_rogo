@@ -8,27 +8,37 @@ require 'progressbar'
 # Profile the code
 
 puts 'world'
-world = World.import("vilas.csv")
+world = World.import("vilas.csv") # eagle.csv
 world.job_name = Time.now.to_i.to_s
-#world.to_png
+# world.to_png
+
 
 puts 'spawning'
-MaleMarten.spawn_population world, 100
+  MaleMarten.spawn_population world, 100
 FemaleMarten.spawn_population world, 100
 world.martens.each do |marten|
   marten.age = 730
 end
 
-#RubyProf.start
+# RubyProf.start
 
 ProgressBar.color_status
 ProgressBar.iter_rate_mode
-bar = ProgressBar.new 'ticks', 730 
-730.times{ world.tick; bar.inc } # world.to_png; 
+bar = ProgressBar.new 'ticks', 730
+
+
+# Tick the world
+
+730.times do
+  world.tick
+  bar.inc
+  # world.to_png
+}
 bar.finish
 
-#result = RubyProf.stop
 
 # Print a flat profile to text
-#printer = RubyProf::FlatPrinter.new(result)
-#printer.print(STDOUT)
+#
+# result = RubyProf.stop
+# printer = RubyProf::FlatPrinter.new(result)
+# printer.print(STDOUT)
