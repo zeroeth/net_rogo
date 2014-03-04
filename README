@@ -1,0 +1,8 @@
+(not) Ruby Net Logo
+===================
+
+This code was designed to test agent modeling in isolation from frameworks.
+
+To run edit profile.rb and:
+
+    ruby profile.rb
